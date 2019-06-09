@@ -26,18 +26,28 @@ export const Style = StyleSheet.create({
         fontSize: 20,
         borderRadius: 4,
         marginTop: 20,
+        outlineColor: "transparent"
     },
     label: {
         marginTop: 21,
         color: '#AAA',
         position: 'absolute'
     },
+    valid: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#25863f',
+    },
+    invalid: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#f04048',
+    }
 });
 
 export const CleanStyle ={
     fontSize: 20,
     top: 7
 };
+
 export const DirtyStyle = {
     fontSize: 12,
     top: -17,
@@ -45,5 +55,6 @@ export const DirtyStyle = {
 
 export const Palette = {
     danger: "#f04048",
-    success: "#25863f"
+    success: "#25863f",
+    normal: "#AAAAAA"
 };

@@ -28,11 +28,16 @@ class InputText extends Component {
     /**
      * Component did update
      * @param prevProps
+     * @param prevState
      */
-    componentDidUpdate(prevProps) {
-        const value = this.parseValue(this.props.value);
-        if (!validator.isEmpty(value) && value !== this.state.value && prevProps.value !== value) {
-            this.validate(value);
+    componentDidUpdate(prevProps, prevState) {
+        const props_value = this.parseValue(this.props.value);
+        const state_value = this.parseValue();
+        if (this.props.value == null){
+        } else if(prevProps.value !== this.props.value) {
+            this.validate(props_value);
+        } else if (prevState.value !== state_value) {
+            this.validate();
         }
     }
 
@@ -64,10 +69,28 @@ class InputText extends Component {
      * @param value
      * @returns string
      */
-    parseValue(value) {
+    parseValue(value = null) {
+        if (value == null){
+            value = this.state.value;
+        }
         value = (value == null ? '' : value);
         value = String(value).trim();
         return value;
+    }
+
+    /**
+     * Parse number type
+     * @param num
+     * @returns {*}
+     */
+    parseNum(num) {
+        if (this.typeNumeric()) {
+            num = parseInt(num);
+        }
+        if(isNaN(num)){
+            num = 0;
+        }
+        return num;
     }
 
     /**
@@ -79,14 +102,26 @@ class InputText extends Component {
     }
 
     /**
+     * Get if type is numeric
+     */
+    typeNumeric(){
+        return (this.props.type === "int" ||
+            this.props.type === "integer" ||
+            this.props.type === "numeric" ||
+            this.props.type === "float" ||
+            this.props.type === "decimal" ||
+            this.props.type === "real");
+    }
+
+    /**
      * Is valid
-     * @param _text
+     * @param value
      * @returns {boolean}
      */
-    isValid(_text) {
+    isValid(value = null) {
 
         let is_valid = true;
-        const text = this.parseValue(_text != null ? _text : this.state.value).trim();
+        const text = this.parseValue(value).trim();
 
         switch (this.getType()) {
             case "email":
@@ -130,23 +165,24 @@ class InputText extends Component {
                 }
                 break;
             case "numeric":
-                if (!validator.isNumeric(text)) {
+                if (!this.isNumeric(text) && !validator.isNumeric(text)) {
                     is_valid = false;
                 }
                 break;
             case "integer":
             case "int":
-                if (!validator.isNumeric(text)) {
+                if (!this.isNumeric(text) && !validator.isNumeric(text)) {
                     is_valid = false;
                 }
                 break;
+            case "real":
             case "float":
-                if (!validator.isFloat(text)) {
+                if (!this.isNumeric(text) && !validator.isFloat(text)) {
                     is_valid = false;
                 }
                 break;
             case "decimal":
-                if (!validator.isDecimal(text)) {
+                if (!this.isNumeric(text) && !validator.isDecimal(text)) {
                     is_valid = false;
                 }
                 break;
@@ -160,9 +196,6 @@ class InputText extends Component {
                     is_valid = false;
                 }
                 break;
-            default:
-                is_valid = !(this.props.required);
-                break;
         }
 
         if (validator.isEmpty(text)){
@@ -174,12 +207,14 @@ class InputText extends Component {
 
     /**
      * Validate
-     * @param _text
+     * @param value
+     * @returns {boolean}
      */
-    validate(_text) {
-        let text = this.parseValue(_text != null ? _text : this.state.value);
-        let is_valid = this.isValid(text);
-        this.setState({value: text, validated: is_valid});
+    validate(value = null) {
+        const text = this.parseValue(value);
+        const valid = this.isValid(text);
+        this.setState({value: text, validated: valid});
+        return valid;
     }
 
     /**
@@ -196,7 +231,6 @@ class InputText extends Component {
      * @param refName
      */
     onFocus(event, refName) {
-        this.setState({dirty: true});
         if (this.props.onFocus) {
             this.props.onFocus(event, refName);
         }
@@ -208,9 +242,6 @@ class InputText extends Component {
      */
     onBlur() {
         Keyboard.dismiss();
-        if (this.state.value == null || validator.isEmpty(this.state.value)) {
-            this.setState({dirty: false});
-        }
         if (this.props.onBlur) {
             this.props.onBlur(arguments);
         }
@@ -223,7 +254,11 @@ class InputText extends Component {
     onChangeText(text) {
         this.validate(text);
         if (this.props.onChangeText) {
-            this.props.onChangeText(text);
+            let value = text;
+            if(this.typeNumeric()){
+                value = this.parseNum(value);
+            }
+            this.props.onChangeText(value);
         }
     }
 
@@ -236,6 +271,15 @@ class InputText extends Component {
         if (this.props.onEndEditing) {
             this.props.onEndEditing(event);
         }
+    }
+
+    /**
+     * Detect if is numeric
+     * @param n
+     * @returns {boolean}
+     */
+    isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
     /**
@@ -266,20 +310,25 @@ class InputText extends Component {
             style: [Style.input, this.props.style],
         };
 
-        if(!validator.isEmpty(this.parseValue(this.state.value))){
+        if(!validator.isEmpty(this.parseValue())){
             props.style.push(this.state.validated ? validStyle : invalidStyle);
         }
 
         let keyboardType = "default";
+        if(this.typeNumeric()){
+            keyboardType = "numeric";
+        }
 
         if (this.props.type) {
             switch (this.props.type) {
                 case "email":
                     keyboardType = "email-address";
                     break;
-                case "numeric":
-                    keyboardType = "numeric";
+                case "int":
+                case "integer":
+                    keyboardType = "number-pad";
                     break;
+                case "real":
                 case "float":
                 case "decimal":
                     keyboardType = "decimal-pad";
@@ -312,7 +361,7 @@ class InputText extends Component {
 
 InputText.propTypes = {
     type: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     onChangeText: PropTypes.func,
@@ -322,8 +371,7 @@ InputText.propTypes = {
 };
 
 InputText.defaultProps = {
-    type: 'default',
-    value: '',
+    type: 'default'
 };
 
 export default InputText;

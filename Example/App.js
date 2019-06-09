@@ -8,6 +8,8 @@ export default class App extends Component {
         super(props);
         this.state = {
             value: "Example of string",
+            valueRequired: "",
+            valueNumber: 1,
         }
     }
 
@@ -18,9 +20,29 @@ export default class App extends Component {
                 <TextInput
                     value={this.state.value}
                     style={styles.input}
-                    type={"email"}
                     onChangeText={(text) => {this.setState({value: text})}}>
                     <Text>Default</Text>
+                </TextInput>
+                <TextInput
+                    value={this.state.valueRequired}
+                    required={true}
+                    style={styles.input}
+                    onChangeText={(text) => {this.setState({valueRequired: text})}}>
+                    <Text>Required</Text>
+                </TextInput>
+                <TextInput
+                    value={this.state.value}
+                    style={styles.input}
+                    type={"email"}
+                    onChangeText={(text) => {this.setState({value: text})}}>
+                    <Text>Email</Text>
+                </TextInput>
+                <TextInput
+                    value={this.state.valueNumber}
+                    style={styles.input}
+                    type={"numeric"}
+                    onChangeText={(text) => {this.setState({valueNumber: text})}}>
+                    <Text>Number</Text>
                 </TextInput>
             </ScrollView>
         );
