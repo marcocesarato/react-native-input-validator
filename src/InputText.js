@@ -362,6 +362,8 @@ class InputText extends Component {
 InputText.propTypes = {
     type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    symbol: PropTypes.string,
+    locale: PropTypes.string,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     onChangeText: PropTypes.func,
