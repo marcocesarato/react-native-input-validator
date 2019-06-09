@@ -1,0 +1,44 @@
+{
+  "name": "react-native-input-validator",
+  "version": "1.0.0",
+  "description": "React native input with floating label and data validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcocesarato/react-native-input-validator.git"
+  },
+  "keywords": [
+    "react-native-component",
+    "react-component",
+    "react-native",
+    "android",
+    "ios",
+    "windows",
+    "reactnative",
+    "email",
+    "int",
+    "number",
+    "input",
+    "validator",
+    "validate",
+    "validation",
+    "floating",
+    "labels"
+  ],
+  "peerDependencies": {
+    "validator": "^11.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "readmeFilename": "README.md",
+  "author": "Marco Cesarato <cesarato.developer@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/marcocesarato/react-native-input-validator/issues"
+  },
+  "homepage": "https://github.com/marcocesarato/react-native-input-validator#readme",
+  "license": "GPL-3.0-or-later"
+}
