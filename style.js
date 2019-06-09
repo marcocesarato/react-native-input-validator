@@ -36,11 +36,11 @@ export const Style = StyleSheet.create({
 
 export const CleanStyle ={
     fontSize: 20,
-        top: 7
+    top: 7
 };
 export const DirtyStyle = {
     fontSize: 12,
-        top: -17,
+    top: -17,
 };
 
 export const Palette = {
