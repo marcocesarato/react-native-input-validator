@@ -141,7 +141,7 @@ locale               | For better validation can be useful for some type like `p
 Property          | Description | Type | Default | Note
 ------------------|-------------|------|---------|-------
 style | Input style | Object |  |  |
-labelStyle | Label Style (placeholder) | Object | Only using `InputValidator` |
-containerStyle | Container Style | Object |  Only using `InputValidator` |
+labelStyle | Label Style (placeholder) | Object | | Only using `InputValidator` |
+containerStyle | Container Style | Object | | Only using `InputValidator` |
 validStyle  | Input Style when valid | Object |  |
 invalidStyle |  Input Style when invalid  | Object |  |
