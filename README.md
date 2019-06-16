@@ -35,17 +35,18 @@ yarn add react-native-input-validator
 
 ### Require
 
-This library have 2 componets `InputValidator` and `InputText`.
-The first have floating labels (placeholder) and the second one not.
 
 ```javascript
-include {InputValidator, InputText} from 'react-native-input-validator';
+include TextInput from 'react-native-input-validator';
 ```
 
-### Placeholder floating label
+### Examples
+
+
+#### Placeholder floating label
 ```javascript
 // Require
-include {InputValidator} from 'react-native-input-validator';
+include TextInput from 'react-native-input-validator';
 
 // Example
 <InputValidator
@@ -65,10 +66,10 @@ this.input.isValidated(); // Faster
 this.input.isValid();
 ```
 
-### Only text input
+#### Only text input
 ```javascript
 // Require
-include {InputText} from 'react-native-input-validator';
+include TextInput from 'react-native-input-validator';
 
 // Example
 <InputText
@@ -77,11 +78,7 @@ include {InputText} from 'react-native-input-validator';
     }}
     value={this.state.value}
     style={styles.input}
-    onChangeText={(text) => {this.setState({value: text})}}>
-    
-    <Text>Default</Text>
-    
-</InputText>
+    onChangeText={(text) => {this.setState({value: text})}} />
 
 // Check Validation
 this.input.isValidated(); // Faster
