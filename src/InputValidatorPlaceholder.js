@@ -162,12 +162,12 @@ class InputValidatorPlaceholder extends InputValidator {
     }
 }
 
-InputValidator.propTypes = {
+InputValidatorPlaceholder.propTypes = {
     labelStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     containerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
-InputValidator.defaultProps = {
+InputValidatorPlaceholder.defaultProps = {
     placeholder: "",
     containerstyle: {},
     labelstyle: {},

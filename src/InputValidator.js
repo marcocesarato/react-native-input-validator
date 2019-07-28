@@ -359,7 +359,7 @@ class InputValidator extends Component {
     }
 }
 
-InputText.propTypes = {
+InputValidator.propTypes = {
     type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     symbol: PropTypes.string,
@@ -372,7 +372,7 @@ InputText.propTypes = {
     secureTextEntry: PropTypes.bool,
 };
 
-InputText.defaultProps = {
+InputValidator.defaultProps = {
     type: 'default'
 };
 

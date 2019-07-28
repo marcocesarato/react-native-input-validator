@@ -1,5 +1,7 @@
 # React Native Input Validator
-### react-native-input-validator
+## `react-native-input-validator`
+
+*Compatible with: Android, iOS, Windows, Web and Expo*
 
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]
@@ -14,12 +16,17 @@
 
 **Author:** Marco Cesarato
 
-## Description
+## 📘 Description
 
 This library validates strings and number passed on TextInput component and highlight the result (valid green, invalid red).
 
+## 🎨 Screenshots
 
-## Install
+<img src="screenshots/example.png" />
+
+## 📖 Install
+
+Just run the following command line:
 
 ### npm
 ```shell
@@ -31,28 +38,28 @@ npm install react-native-input-validator --save
 yarn add react-native-input-validator
 ```
 
-## Usage
+## 💻 Usage
 
 ### Require
 
 
 ```javascript
-include TextInput from 'react-native-input-validator';
+import TextInput from 'react-native-input-validator';
 ```
 
 ### Examples
 
-
 #### Placeholder floating label
 ```javascript
 // Require
-include TextInput from 'react-native-input-validator';
+import TextInput from 'react-native-input-validator';
 
 // Example
 <InputValidator
     ref={(r) => {
         this.input = r;
     }}
+    type="email"
     value={this.state.value}
     style={styles.input}
     onChangeText={(text) => {this.setState({value: text})}}>
@@ -69,13 +76,14 @@ this.input.isValid();
 #### Only text input
 ```javascript
 // Require
-include TextInput from 'react-native-input-validator';
+import TextInput from 'react-native-input-validator';
 
 // Example
 <InputText
     ref={(r) => {
         this.input = r;
     }}
+    type="email"
     value={this.state.value}
     style={styles.input}
     onChangeText={(text) => {this.setState({value: text})}} />
@@ -85,7 +93,7 @@ this.input.isValidated(); // Faster
 this.input.isValid();
 ```
 
-## Run example
+## ⚡️ Run example
 Clone or download repo and after:
 ```shell
 cd Example
@@ -95,12 +103,7 @@ expo start
 
 Open Expo Client on your device. Use it to scan the QR code printed by `expo start`. You may have to wait a minute while your project bundles and loads for the first time.
 
-## Screenshots
-
-### Example
-<img src="screenshots/example.png" />
-
-## Types
+## 📘 Types
 
 - email
 - phone
@@ -117,12 +120,14 @@ Open Expo Client on your device. Use it to scan the QR code printed by `expo sta
 - alpha
 - alphanumeric
 
-## Handlers
+## 💡 Props
+
+### Handlers
 
 Same of `TextInput`.
 Read more here: https://facebook.github.io/react-native/docs/textinput.html
 
-## Props
+### Props
 
 Same of `TextInput`. 
 Read more here: https://facebook.github.io/react-native/docs/textinput.html
@@ -133,7 +138,7 @@ type               | Type of input | String  | `dafault`  | |
 symbol | Symbol for `currency` type | String  | | |
 locale               | For better validation can be useful for some type like `postal-code`, `identity-card` etc... | String  |   | Locale is one of `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']` |
 
-## Props style
+### Props Styles
 
 Property          | Description | Type | Default | Note
 ------------------|-------------|------|---------|-------
@@ -142,3 +147,7 @@ labelStyle | Label Style (placeholder) | Object | | Only using `InputValidator` 
 containerStyle | Container Style | Object | | Only using `InputValidator` |
 validStyle  | Input Style when valid | Object |  |
 invalidStyle |  Input Style when invalid  | Object |  |
+
+## 🤔 How to contribute
+Have an idea? Found a bug? Please raise to [ISSUES](https://github.com/marcocesarato/react-native-input-validator/issues).
+Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
