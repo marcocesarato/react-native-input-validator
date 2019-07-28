@@ -1,6 +1,6 @@
 {
   "name": "react-native-input-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React native input with floating label and data validation",
   "main": "index.js",
   "scripts": {
@@ -29,8 +29,12 @@
     "labels",
     "placeholder"
   ],
+  "dependencies": {
+    "validator": "^11.1.0"
+  },
   "peerDependencies": {
-    "validator": "^11.0.0"
+    "react": "*",
+    "react-native": "*"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
