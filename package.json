@@ -1,6 +1,6 @@
 {
   "name": "react-native-input-validator",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "React native input with floating label and data validation",
   "main": "index.js",
   "scripts": {

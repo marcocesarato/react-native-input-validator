@@ -31,6 +31,9 @@ class InputValidator extends Component {
      * @param prevState
      */
     componentDidUpdate(prevProps, prevState) {
+        if(typeof this.props.onRef === 'function') {
+            this.props.onRef(this._isMounted ? this : undefined);
+        }
         const props_value = this.parseValue(this.props.value);
         const state_value = this.parseValue();
         if (this.props.value == null){
@@ -45,6 +48,7 @@ class InputValidator extends Component {
      * Component did mount
      */
     componentDidMount() {
+        this._isMounted = true;
         if(typeof this.props.onRef === 'function') {
             this.props.onRef(this);
         }
@@ -54,7 +58,8 @@ class InputValidator extends Component {
     /**
      * Component did unmount
      */
-    componentDidUnmount() {
+    componentWillUnmount() {
+        this._isMounted = false;
         if(typeof this.props.onRef === 'function') {
             this.props.onRef(undefined);
         }
@@ -373,6 +378,7 @@ class InputValidator extends Component {
         }
 
         delete props.children;
+        delete props.onRef;
         delete props.ref;
 
         if (props.editable === false) {

@@ -7,7 +7,7 @@ export default class App extends Component {
     constructor(props){
         super(props);
 
-        this.input = [];
+        this.textInput = [];
 
         this.state = {
             value: "Example of string",
@@ -17,13 +17,12 @@ export default class App extends Component {
     }
 
     render(){
-        this.input = [];
         return (
             <ScrollView style={styles.container}>
                 <Text style={styles.title}>Example{"\n"}react-native-input-validator</Text>
                 <TextInput
                     onRef={(r) => {
-                        this.input.push(r);
+                        this.textInput[0] = r;
                     }}
                     value={this.state.value}
                     style={styles.input}
@@ -32,7 +31,7 @@ export default class App extends Component {
                 </TextInput>
                 <TextInput
                     onRef={(r) => {
-                        this.input.push(r);
+                        this.textInput[1] = r;
                     }}
                     value={this.state.valueRequired}
                     required={true}
@@ -42,7 +41,7 @@ export default class App extends Component {
                 </TextInput>
                 <TextInput
                     onRef={(r) => {
-                        this.input.push(r);
+                        this.textInput[2] = r;
                     }}
                     value={this.state.value}
                     style={styles.input}
@@ -52,7 +51,7 @@ export default class App extends Component {
                 </TextInput>
                 <TextInput
                     onRef={(r) => {
-                        this.input.push(r);
+                        this.textInput[3] = r;
                     }}
                     value={this.state.valueNumber}
                     style={styles.input}
@@ -63,12 +62,14 @@ export default class App extends Component {
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
-                        this.input.map((item) => {
-                           console.log(item);
+                        console.log(this.textInput);
+                        this.textInput.map((item, i) => {
+                           console.log("TextInput " + i, item.isValid());
                         });
                     }}>
                     <Text>Validate</Text>
                 </TouchableOpacity>
+                <Text>Check validation on console.</Text>
             </ScrollView>
         );
     }
