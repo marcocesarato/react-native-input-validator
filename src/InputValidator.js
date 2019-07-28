@@ -45,7 +45,19 @@ class InputValidator extends Component {
      * Component did mount
      */
     componentDidMount() {
+        if(typeof this.props.onRef === 'function') {
+            this.props.onRef(this);
+        }
         this.validate();
+    }
+
+    /**
+     * Component did unmount
+     */
+    componentDidUnmount() {
+        if(typeof this.props.onRef === 'function') {
+            this.props.onRef(undefined);
+        }
     }
 
     /**
@@ -223,6 +235,27 @@ class InputValidator extends Component {
     blur() {
         this.input.blur();
         Keyboard.dismiss();
+    }
+
+    /**
+     * Focus
+     */
+    focus() {
+        this.input.focus();
+    }
+
+    /**
+     * Update
+     */
+    update() {
+        this.input.update();
+    }
+
+    /**
+     * Clear
+     */
+    clear() {
+        this.input.clear();
     }
 
     /**

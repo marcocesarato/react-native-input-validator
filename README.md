@@ -51,12 +51,13 @@ import TextInput from 'react-native-input-validator';
 
 #### Placeholder floating label
 ```javascript
-// Require
+// Import
 import TextInput from 'react-native-input-validator';
-
+```
+```javascript
 // Example
 <InputValidator
-    ref={(r) => {
+    onRef={(r) => {
         this.input = r;
     }}
     type="email"
@@ -67,30 +68,33 @@ import TextInput from 'react-native-input-validator';
     <Text>Default</Text>
     
 </InputValidator>
-
+```
+```javascript
 // Check Validation
-this.input.isValidated(); // Faster
-this.input.isValid();
+this.input.isValidated(); // Faster: Check validation state
+this.input.isValid(); // Alternative safer: Validate and check validation state
 ```
 
 #### Only text input
 ```javascript
-// Require
+// Import
 import TextInput from 'react-native-input-validator';
-
+```
+```javascript
 // Example
 <InputText
-    ref={(r) => {
+    onRef={(r) => {
         this.input = r;
     }}
     type="email"
     value={this.state.value}
     style={styles.input}
     onChangeText={(text) => {this.setState({value: text})}} />
-
+```
+```javascript
 // Check Validation
-this.input.isValidated(); // Faster
-this.input.isValid();
+this.input.isValidated(); // Faster: Check validation state
+this.input.isValid(); // Alternative safer: Validate and check validation state
 ```
 
 ## ⚡️ Run example
@@ -124,15 +128,29 @@ Open Expo Client on your device. Use it to scan the QR code printed by `expo sta
 
 ### Handlers
 
-Same of `TextInput`.
+Same of `TextInput` like `onChangeText` etc... 
 Read more here: https://facebook.github.io/react-native/docs/textinput.html
+
+Additional Handlers          | Description | Type | Default | Note
+------------------|-------------|------|---------|-------
+onRef             | Reference of the TextInput instance  | Function  |  | Important for validate fields |
+
+### Methods
+
+Same of `TextInput` like `focus()`, `clear()`, `blur()` etc... 
+Read more here: https://facebook.github.io/react-native/docs/textinput.html
+
+Additional Methods          | Description | Type | Default | Note
+------------------|-------------|------|---------|-------
+isValidated       | Check if state of TextInput is valid | Bool
+isValid           | Validate the TextInput and return the validation state | Bool
 
 ### Props
 
-Same of `TextInput`. 
+Same of `TextInput` like `editable`, `autoFocus` etc... 
 Read more here: https://facebook.github.io/react-native/docs/textinput.html
 
-Property          | Description | Type | Default | Note
+Additional Property          | Description | Type | Default | Note
 ------------------|-------------|------|---------|-------
 type               | Type of input | String  | `dafault`  | |
 symbol | Symbol for `currency` type | String  | | |
