@@ -25,8 +25,7 @@ export const Style = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         borderRadius: 4,
-        marginTop: 20,
-        outlineColor: "transparent"
+        marginTop: 20
     },
     label: {
         marginTop: 21,
