@@ -100,6 +100,7 @@ class InputValidatorPlaceholder extends InputValidator {
             return Animated.timing(
                 labelStyle[prop],
                 {
+                    useNativeDriver: true,
                     toValue: nextStyle[prop],
                     duration: 200
                 },
