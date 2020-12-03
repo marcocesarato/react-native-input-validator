@@ -30,7 +30,7 @@
     "placeholder"
   ],
   "dependencies": {
-    "validator": "^13.0.0"
+    "validator": "^13.5.1"
   },
   "peerDependencies": {
     "react": "*",
