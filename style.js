@@ -3,7 +3,27 @@
  * @author Marco Cesarato <cesarato.developer@gmail.com>
  */
 
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
+
+const inputStyle = {
+    flex: 1,
+    minHeight: 50,
+    borderColor: '#FFF',
+    borderBottomColor: '#CCC',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    borderWidth: 1,
+    color: 'black',
+    fontSize: 20,
+    borderRadius: 4,
+    marginTop: 20,
+    outlineWidth: 0,
+    outlineStyle: 'none'
+}
+
+const inputWebStyle = {
+    ...inputStyle,
+}
 
 export const Style = StyleSheet.create({
     element: {
@@ -14,19 +34,7 @@ export const Style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
-    input: {
-        flex: 1,
-        minHeight: 50,
-        borderColor: '#FFF',
-        borderBottomColor: '#CCC',
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-        borderWidth: 1,
-        color: 'black',
-        fontSize: 20,
-        borderRadius: 4,
-        marginTop: 20
-    },
+    input: Platform.OS === 'web' ? inputWebStyle : inputStyle,
     label: {
         marginTop: 21,
         color: '#AAA',
