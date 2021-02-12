@@ -4,7 +4,8 @@
   "description": "React native input with floating label and data validation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettify": "prettier --write ./src/*.{ts,json,md,yml,js} && prettier --write ./*.{ts,json,md,yml,js}"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,10 @@
   ],
   "dependencies": {
     "validator": "^13.5.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   },
   "peerDependencies": {
     "react": "*",
