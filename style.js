@@ -17,8 +17,12 @@ const inputStyle = {
     fontSize: 20,
     borderRadius: 4,
     marginTop: 20,
-    outlineWidth: 0,
-    outlineStyle: 'none'
+    ...Platform.select({
+        web: {
+            outlineWidth: 0,
+            outline: "none"
+        },
+    })
 }
 
 const inputWebStyle = {
