@@ -1,54 +1,54 @@
 {
-  "name": "react-native-input-validator",
-  "version": "1.0.11",
-  "description": "React native input with floating label and data validation",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prettify": "prettier --write ./src/*.{ts,json,md,yml,js} && prettier --write ./*.{ts,json,md,yml,js}"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcocesarato/react-native-input-validator.git"
-  },
-  "keywords": [
-    "react-native-component",
-    "react-component",
-    "react-native",
-    "android",
-    "ios",
-    "windows",
-    "reactnative",
-    "email",
-    "int",
-    "number",
-    "input",
-    "validator",
-    "validate",
-    "validation",
-    "floating",
-    "labels",
-    "placeholder"
-  ],
-  "dependencies": {
-    "validator": "^13.5.1"
-  },
-  "devDependencies": {
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "readmeFilename": "README.md",
-  "author": "Marco Cesarato <cesarato.developer@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/marcocesarato/react-native-input-validator/issues"
-  },
-  "homepage": "https://github.com/marcocesarato/react-native-input-validator#readme",
-  "license": "GPL-3.0-or-later"
+	"name": "react-native-input-validator",
+	"version": "1.0.11",
+	"description": "React native input with floating label and data validation",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prettify": "prettier --write ./src/*.{ts,json,md,yml,js} && prettier --write ./*.{ts,json,md,yml,js}"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/marcocesarato/react-native-input-validator.git"
+	},
+	"keywords": [
+		"react-native-component",
+		"react-component",
+		"react-native",
+		"android",
+		"ios",
+		"windows",
+		"reactnative",
+		"email",
+		"int",
+		"number",
+		"input",
+		"validator",
+		"validate",
+		"validation",
+		"floating",
+		"labels",
+		"placeholder"
+	],
+	"dependencies": {
+		"validator": "^13.5.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.2.1",
+		"pretty-quick": "^3.1.0"
+	},
+	"peerDependencies": {
+		"react": "*",
+		"react-native": "*"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/"
+	},
+	"readmeFilename": "README.md",
+	"author": "Marco Cesarato <cesarato.developer@gmail.com>",
+	"bugs": {
+		"url": "https://github.com/marcocesarato/react-native-input-validator/issues"
+	},
+	"homepage": "https://github.com/marcocesarato/react-native-input-validator#readme",
+	"license": "GPL-3.0-or-later"
 }
