@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^39.0.5",
+    "expo": "^47.0.0",
 	"react": "16.14.0",
 	"react-dom": "^16.14.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
@@ -29,7 +29,7 @@
     "insertPragma": false
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.3.0"
+    "babel-preset-expo": "^9.0.0"
   },
   "private": true
 }
